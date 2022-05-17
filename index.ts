@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from "express"
 import cors from "cors"
-import { evaluate, tokenize } from "./utils"
+import { evaluate } from "./utils"
 
 const app: Express = express()
 const port = 5000
@@ -21,14 +21,15 @@ app.get(
         res: Response
     ) => {
         try {
+            // + symbol is being sent as "%2B" so we have to decode it
             const expression: string = req.query.expression.replaceAll(
                 "%2B",
                 "+"
             )
-            res.status(201).json({
-                success: true,
-                result: evaluate(expression),
-            })
+
+            const result = evaluate(expression)
+
+            res.status(201).json({ success: true, result })
         } catch (err: any) {
             res.status(500).json({ success: false, result: err.message })
         }

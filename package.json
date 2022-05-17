@@ -19,8 +19,8 @@
         "server": "nodemon -q dist/index.js",
         "client": "cd ./client && serve -s build",
         "build": "concurrently \"npx tsc\" \"cd ./client && npm run build\"",
-        "start": "concurrently \"npm run server\" \"npm run client\"",
-        "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+        "start": "npm run build && concurrently \"npm run server\" \"npm run client\"",
+        "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\" \"cd ./client && npm start\"",
         "test": "jest"
     }
 }
