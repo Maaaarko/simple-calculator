@@ -17,7 +17,7 @@
     "scripts": {
         "install-all": "npm i && cd ./client && npm i && cd ..",
         "server": "nodemon -q dist/index.js",
-        "client": "cd ./client && serve -s build",
+        "client": "cd ./client && npx serve -s build",
         "build": "concurrently \"npx tsc\" \"cd ./client && npm run build\"",
         "start": "npm run build && concurrently \"npm run server\" \"npm run client\"",
         "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\" \"cd ./client && npm start\"",
