@@ -5,12 +5,18 @@ type OperatorPrecedence = {
 }
 
 const precedences: OperatorPrecedence = {
-    "×": 3,
-    "/": 3,
-    "+": 2,
-    "-": 2,
+    "×": 2,
+    "/": 2,
+    "+": 1,
+    "-": 1,
 }
 
+/**
+ * Converts tokens in infix notation to postfix notation (aka RPN - Reverse Polish Notation) using Dijkstra's Shunting-yard algorithm
+ *
+ * @param tokens - cleaned array of tokens in infix notation
+ * @returns array of tokens in postfix notation
+ */
 function infixToPostfix(tokens: string[]): string[] {
     const postfix: string[] = []
     const stack: string[] = []

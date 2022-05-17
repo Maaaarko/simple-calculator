@@ -1,8 +1,8 @@
 # Simple Calculator
 
-#### React, Node.js and Express
+#### Built with React, Node.js and Express
 
-This calculator supports basic math operations: +, -, ×, /, (). There is also a log of previous
+This calculator supports basic math operations: +, -, ×, /, ().
 
 #### Installation
 
@@ -18,8 +18,16 @@ To see the app in action...
 npm start
 ```
 
-... or for testing purposes ...
+To run the tests...
+
+```sh
+npm run test
+```
+
+... or for development purposes ...
 
 ```sh
 npm run dev
 ```
+
+You can see the documentation [here](/docs/index.html)

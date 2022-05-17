@@ -1,5 +1,11 @@
 import { isOperator } from "./helpers"
 
+/**
+ * Evaluates the postfix expression
+ *
+ * @param postfix - array of tokens in postfix notation
+ * @returns numerical result of the expression
+ */
 function evaluatePostfix(postfix: string[]): number {
     const stack: number[] = []
 

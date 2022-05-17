@@ -1,11 +1,18 @@
 import { isOperator, isNumber } from "./helpers"
 
+/**
+ * Processes the input expression and converts them into tokens (tokens are numbers and operators)
+ *
+ * @param expression - expression to be tokenized
+ * @returns array of tokens
+ */
 function tokenize(expression: string): string[] {
     const tokens: string[] = []
     let currentToken = ""
 
     let openParenthesis = 0
 
+    // cleaning the input expression, e.g. 2(3+4) -> 2×(3+4)
     for (let i = 0; i < expression.length; i++) {
         const currentChar = expression[i]
         const nextChar = expression[i + 1] || ""
@@ -20,6 +27,7 @@ function tokenize(expression: string): string[] {
         }
     }
 
+    // identifying tokens. token is either a number or an operator
     for (let i = 0; i < expression.length; i++) {
         const currentChar = expression[i]
         const nextChar = expression[i + 1] || ""
@@ -94,6 +102,15 @@ function tokenize(expression: string): string[] {
     return sanitizeTokens(tokens)
 }
 
+/**
+ * Cleans the tokens array by removing redundant operators
+ * e.g.
+ * 2+++2 -> 2+2
+ * 2-+2 -> 2-2
+ *
+ * @param tokens - tokens to be cleaned
+ * @returns array of tokens in infix notation
+ */
 function sanitizeTokens(tokens: string[]): string[] {
     const sanitized: string[] = []
     let charCounter = 0
