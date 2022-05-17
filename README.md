@@ -30,4 +30,4 @@ npm run test
 npm run dev
 ```
 
-You can see the documentation [here](/docs/index.html)
+You can see the documentation [here](https://maaaarko.github.io/simple-calculator/)
