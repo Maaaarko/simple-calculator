@@ -1,6 +1,6 @@
 # Simple Calculator
 
-#### Built with React, Node.js and Express
+#### Built with TypeScript, Node.js, Express and React
 
 The calculator supports basic math operations: +, -, ×, /, ().
 
@@ -44,4 +44,4 @@ Input is first converted into tokens - token being an operand or an operator. Al
 It is then converted to postfix notation, aka Reverse Polish notation, using Dijkstra's Shunting yard algorithm.
 The postfix expression is than calculated and result is returned to the client.
 
-You can see the server-side docs [here](https://maaaarko.github.io/simple-calculator/)
+You can see the server-side docs [here](https://maaaarko.github.io/simple-calculator/modules.html)
