@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import Button from "./components/Button"
 import InputField from "./components/InputField"
+import renderButtons from "./helpers/renderButtons"
 
 type Data = {
     success: string
@@ -72,103 +73,12 @@ function App() {
                     <div className="flex flex-col m-3 p-3 w-full h-64 justify-center">
                         <InputField value={value} onChange={onChange} />
                         <div className="flex-1 grid grid-cols-4 justify-center items-center text-center">
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleButtonInput("(")}>
-                                (
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleButtonInput(")")}>
-                                )
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleClear()}>
-                                C
-                            </Button>
-                            <Button
-                                color="bg-orange-400"
-                                onClick={() => handleButtonInput("/")}>
-                                /
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleButtonInput("7")}>
-                                7
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleButtonInput("8")}>
-                                8
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleButtonInput("9")}>
-                                9
-                            </Button>
-                            <Button
-                                color="bg-orange-400"
-                                onClick={() => handleButtonInput("×")}>
-                                ×
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleButtonInput("4")}>
-                                4
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleButtonInput("5")}>
-                                5
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleButtonInput("6")}>
-                                6
-                            </Button>
-                            <Button
-                                color="bg-orange-400"
-                                onClick={() => handleButtonInput("-")}>
-                                -
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleButtonInput("1")}>
-                                1
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleButtonInput("2")}>
-                                2
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleButtonInput("3")}>
-                                3
-                            </Button>
-                            <Button
-                                color="bg-orange-400"
-                                onClick={() => handleButtonInput("+")}>
-                                +
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                colspan="col-span-2"
-                                onClick={() => handleButtonInput("0")}>
-                                0
-                            </Button>
-                            <Button
-                                color="bg-gray-400"
-                                onClick={() => handleButtonInput(",")}>
-                                ,
-                            </Button>
-                            <Button
-                                color="bg-orange-400"
-                                disabled={!isValid}
-                                onClick={() => handleSubmit()}>
-                                =
-                            </Button>
+                            {renderButtons({
+                                handleButtonInput,
+                                handleClear,
+                                handleSubmit,
+                                isValid,
+                            })}
                         </div>
                     </div>
                     {error && (
