@@ -57,7 +57,6 @@ function tokenize(expression: string): string[] {
                     "Error at character " + i + ": " + "Invalid syntax."
                 )
             } else {
-                console.log("OVO?", currentChar, prevChar)
                 throw new SyntaxError(
                     "Error at character " + i + ": " + "Unknown error."
                 )
